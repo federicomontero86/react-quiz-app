@@ -84,7 +84,7 @@ export default function App() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:9000/questions")
+    fetch(process.env.REACT_APP_BACK_URL)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
